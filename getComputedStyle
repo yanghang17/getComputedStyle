@@ -1,0 +1,37 @@
+<html>
+<head>
+	<title></title>
+  <style type="text/css">
+    div {
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+<div id="user">
+   <p>adsasd<br><i>kjaskldjl</i></p>
+   <h2>nihao</h2>
+</div>
+  <script type="text/javascript">
+  function getStyle(element,attr) {
+    //if判断    
+    if (window.getComputedStyle) {
+    //优先判断true，使用w3c规范
+      return window.getComputedStyle(element)[attr];
+    } else {
+      return element.currentStyle[attr];
+    }
+  }
+  function getStyle(element,attr) {
+     //三目运算，如果为true，在执行表达式2的值，反之，执行表达式3的值
+    return window.getComputedStyle?window.getComputedStyle(element)[attr]:element.currentStyle[attr];
+  }
+  var d = document.getElementById('user');
+  console.log(d);
+  var a = getStyle(d,'color');
+  console.log(a)    //rgb(0, 0, 255)
+</script>
+</body>
+</html>
+1. 针对IE9以下的不支持getComputedStyle，兼容版本可以使用currentStyle。
+2. 写的获取样式的函数。
